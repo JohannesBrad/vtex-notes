@@ -1,0 +1,75 @@
+
+### VTEX IO ###
+
+Consideraciones:
+1.- Hacer todos tus cambios en tu workspace y en la rama DEV
+2.- Probar que todo funcion bien, que no muestre errores.
+3.- Commitear todos tus cambios en DEV
+4.- Luego pasarse a MASTER 
+ a.- Actualizar posibles cambios, haciendo: $ git pull origin master
+ b.- Hacer merge (desde master traer los cambios de DEV: $ git merge dev)
+5.- Dentro de master y dentro de tu workspace, hacer: $ vtex link (para comprobar que todo este bien)
+
+
+# Comandos para pase a PRODUCCION # (hacer dentro del store theme)
+
+1.-
+$ vtex release patch stable
+15:09:29.532 - info: Old version: 4.0.25  
+15:09:29.536 - info: New version: 4.0.26  (esto ira cambiando de version)
+? Are you sure? » (Y/n)
+$ yes
+
+NOTA: Crea una nueva version del store theme y va hacer el push y va a ser public del store
+
+? Are you sure that you want to release version 4.0.26 of coolboxpe.store-theme-copy? » (y/N)
+$yes
+
+NOTA: (Pregunta sobre el cambio de la nueva version, dar en: Yes)
+
+
+2.-
+$ vtex use johannestemporal -p (Crear workspace)
+! Workspace johannestemporal doesn't exist
+? Do you wish to create it? » (Y/n)
+$ yes
+
+NOTA:  Hay que promover el cambio a produccion, creando un nuevo workspace 
+
+3.- Esperar 7 minutos para hacer el deploy, copiar y pegar el link que dice: vtex deploy ...
+15:11:25.788 - info: You can deploy it with: vtex deploy coolboxpe.store-theme-copy@4.0.26
+Luego
+$ vtex deploy coolboxpe.store-theme-copy@4.0.26 (enter)
+
+dar en yes.
+
+AHora se tiene que instalar el store theme, comprobarlo
+vtex list
+
+despues instalar, copiar el codigo del deploy ,pero cambiar el deploy por install
+
+luego dar Enter
+
+despues de todo eso
+
+dar vtex promote (este es el utimo paso para pasar  produccion)
+darle: yes
+
+
+
+
+fechadel nuevo cambio de menu a produccion 3/6/21
+coolboxpe.store-theme-copy   4.0.84
+
+
+
+
+
+
+
+
+
+
+
+Luego dar yes y crear un workspace
+vtex use johannesprod -p
